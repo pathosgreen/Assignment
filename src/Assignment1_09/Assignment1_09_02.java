@@ -1,0 +1,45 @@
+package Assignment1_09;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Assignment1_09_02 {
+	public static void main(String[] args) {
+		
+		Random rand = new Random();
+		Scanner scan = new Scanner(System.in);
+		
+		String[] dayKorean = {"일","월","화","수","목","금","토"};
+		String[] dayEnglish = {"sunday","monday","tuesday","wednesday","thursday","friday","saturday"};
+		
+		System.out.println("요일명을 영어 소문자로 입력하세요.");
+		
+		int retry;
+		int last = -1;
+		
+		do {
+			int day;
+			do {
+				day = rand.nextInt(7);
+			}while(day == last);
+			last = day;
+			
+			int action;
+			do{
+				System.out.print(dayKorean[day]+"요일 : ");
+				String s = scan.next();
+				
+				if(s.equals(dayEnglish[day])) break;
+				System.out.println("틀렸습니다.");
+				do {
+					System.out.print("어떻게 할까요? 1=재입력 0=정답보기 : ");
+					action = scan.nextInt();
+					if(action == 0) 
+						System.out.println("정답 : "+dayEnglish[day]);
+				}while(action != 0 && action != 1);
+			}while(action == 1);
+			System.out.print(" 다시 한번? 1 = yes : ");
+			retry = scan.nextInt();
+		}while(retry==1);
+	}
+}
