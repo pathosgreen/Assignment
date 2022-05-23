@@ -26,5 +26,4 @@ public class SumOf1 {
 		
 		System.out.println("모든 요소의 합은 "+ sumOf(x) +"입니다.");
 	}
-	
 }
